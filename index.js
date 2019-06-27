@@ -119,6 +119,19 @@ const puppeteer = require('puppeteer');
                                 return_exit(-2);
                             });
 
+                            await page.evaluate(()=>{
+                                var style = document.createElement("style");
+
+                                style.type = "text/css";
+
+                                style.appendChild(document.createTextNode("div,p,h1,h2,h3,h4,h5,td,span{page-break-inside:avoid;}"));
+
+
+                                var head = document.getElementsByTagName("head")[0];
+
+                                head.appendChild(style);
+                            });
+
                             await page.pdf(options).catch(e=>{
 
                                 return_exit(-3);

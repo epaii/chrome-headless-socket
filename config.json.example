@@ -1,0 +1,11 @@
+{
+  "chrome_launch": {
+    "executablePath": "/Applications/Google Chrome.app/Contents/MacOS/Google CHrome",
+    "headless": false,
+    "args": [
+      "--no-sandbox",
+      "--proxy-server=socks5://192.168.16.10:6666"
+    ]
+  },
+  "socket_port":4005
+}

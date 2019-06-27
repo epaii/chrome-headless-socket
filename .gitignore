@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+*.log
+*.DS_Store
+test
+config.json
+runtime
+gitpush.sh

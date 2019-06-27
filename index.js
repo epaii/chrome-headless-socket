@@ -124,6 +124,7 @@ const puppeteer = require('puppeteer');
                                 return_exit(-3);
                             });
 
+                            await  page.goto("about:blank");
                             return_exit(1);
                         })();
 

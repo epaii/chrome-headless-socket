@@ -113,10 +113,10 @@ const puppeteer = require('puppeteer');
                             }
 
                             await page.goto(url, {
-                                waitUntil: "networkidle0"
+                                timeout: 10000
                             }).catch(e=>{
 
-                                return_exit(-2);
+                               // return_exit(-2);
                             });
 
                             // await page.evaluate(()=>{

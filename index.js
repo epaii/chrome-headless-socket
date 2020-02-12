@@ -69,7 +69,7 @@ const puppeteer = require('puppeteer');
         };
 
         const info = JSON.parse(data);
-        if (info.do === "pdf") {
+        if (info.do === "pdf"  || info.do === "png") {
             // exit(1, "先成功");
             (async () => {
 
@@ -132,10 +132,20 @@ const puppeteer = require('puppeteer');
                             //     head.appendChild(style);
                             // });
 
-                            await page.pdf(options).catch(e=>{
+                            if (info.do === "pdf")
+                            {
+                                await page.pdf(options).catch(e=>{
 
-                                return_exit(-3);
-                            });
+                                    return_exit(-3);
+                                });
+                            }else if (info.do === "png")
+                            {
+                                await page.screenshot(options).catch(e=>{
+
+                                    return_exit(-3);
+                                });
+                            }
+
 
                             await  page.goto("about:blank");
                             return_exit(1);
@@ -150,7 +160,7 @@ const puppeteer = require('puppeteer');
 
                 info.pages.forEach((page_config) => {
                     promise_pages.push(do_one(page_config.url, page_config.options));
-                })
+                });
 
                 Promise.all(promise_pages).then((e)=>{
                     console.log(e);

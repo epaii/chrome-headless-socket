@@ -69,7 +69,7 @@ const puppeteer = require('puppeteer');
         };
 
         const info = JSON.parse(data);
-        if (info.do === "pdf"  || info.do === "png") {
+        if (info.do === "pdf") {
             // exit(1, "先成功");
             (async () => {
 
@@ -131,19 +131,22 @@ const puppeteer = require('puppeteer');
                             //
                             //     head.appendChild(style);
                             // });
+                            var create_type = options.hasOwnProperty("create_type")?options.create_type:"pdf";
 
-                            if (info.do === "pdf")
+                            if (create_type === "pdf")
                             {
                                 await page.pdf(options).catch(e=>{
 
                                     return_exit(-3);
                                 });
-                            }else if (info.do === "png")
+                            }else if (create_type === "image")
                             {
                                 await page.screenshot(options).catch(e=>{
-
+                                  //  console.log(e);
                                     return_exit(-3);
                                 });
+                            }else{
+                                return_exit(-4);
                             }
 
 

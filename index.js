@@ -142,7 +142,7 @@ const puppeteer = require('puppeteer');
                             }else if (create_type === "image")
                             {
                                 await page.screenshot(options).catch(e=>{
-                                  //  console.log(e);
+                                   console.log(e);
                                     return_exit(-3);
                                 });
                             }else{

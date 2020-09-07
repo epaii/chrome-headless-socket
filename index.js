@@ -135,7 +135,7 @@ const puppeteer = require('puppeteer');
 
                             if (create_type === "pdf")
                             {
-                                console.log(options);
+                               // console.log(options);
                                 await page.pdf(options).catch(e=>{
                                      console.log(e);   
                                     return_exit(-3);

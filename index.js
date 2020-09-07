@@ -135,8 +135,9 @@ const puppeteer = require('puppeteer');
 
                             if (create_type === "pdf")
                             {
+                                console.log(options);
                                 await page.pdf(options).catch(e=>{
-
+                                     console.log(e);   
                                     return_exit(-3);
                                 });
                             }else if (create_type === "image")

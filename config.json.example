@@ -5,7 +5,11 @@
     "args": [
       "--no-sandbox",
       "--proxy-server=socks5://192.168.16.10:6666"
-    ]
+    ],
+    "defaultViewport":{
+      "width":1920,
+      "height":1500
+    }
   },
   "socket_port":4005,
    "page_num":20
